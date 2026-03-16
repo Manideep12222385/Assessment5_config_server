@@ -9,14 +9,14 @@ spring:
     gateway:
       routes:
         - id: movie-service
-          uri: lb://MOVIE-SERVICE
+          uri: lb://movie-service
           predicates:
-            - Path=/movies,/movies/**
+            - Path=/movies/**
 
         - id: booking-service
-          uri: lb://BOOKING-SERVICE
+          uri: lb://booking-service
           predicates:
-            - Path=/bookings,/bookings/**
+            - Path=/bookings/**
 
 eureka:
   client:

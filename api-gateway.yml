@@ -14,14 +14,14 @@ spring:
           predicates:
             - Path=/movies/**
           filters:
-            - RewritePath=/movies/(?<segment>.*), /movies/${segment}
+            - StripPrefix=1
 
         - id: booking-service
           uri: lb://BOOKING-SERVICE
           predicates:
             - Path=/bookings/**
           filters:
-            - RewritePath=/bookings/(?<segment>.*), /bookings/${segment}
+            - StripPrefix=1
 
 eureka:
   client:

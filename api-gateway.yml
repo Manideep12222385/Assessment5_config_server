@@ -5,19 +5,18 @@ spring:
   application:
     name: api-gateway
 
-  cloud:
+ cloud:
     gateway:
       routes:
-
         - id: movie-service
           uri: lb://MOVIE-SERVICE
           predicates:
-            - Path=/movies/**
+            - Path=/movies,/movies/**
 
         - id: booking-service
           uri: lb://BOOKING-SERVICE
           predicates:
-            - Path=/bookings/**
+            - Path=/bookings,/bookings/**
 
 eureka:
   client:

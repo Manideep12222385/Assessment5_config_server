@@ -10,18 +10,14 @@ spring:
       routes:
 
         - id: movie-service
-          uri: lb://MOVIE-SERVICE
+          uri: lb://movie-service
           predicates:
             - Path=/movies/**
-          filters:
-            - RewritePath=/movies/(?<segment>.*), /movies/${segment}
 
         - id: booking-service
-          uri: lb://BOOKING-SERVICE
+          uri: lb://booking-service
           predicates:
             - Path=/bookings/**
-          filters:
-            - RewritePath=/bookings/(?<segment>.*), /bookings/${segment}
 
 eureka:
   client:
